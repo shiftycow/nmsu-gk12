@@ -1,0 +1,156 @@
+<html>
+  <head>
+    <title>Waterfall Module</title>
+<script type="text/javascript">
+
+var t=0; 
+var frameInterval = 10; // in ms
+var canvas = null; // canvas DOM object
+var context = null; // canvas context
+ 
+var waterfall = []; //Full waterfall
+var imgs = [];
+
+function WaterImage(newX, newY, newSrc){
+  this.x =newX;
+  this.y =newY;
+  this.src =newSrc;
+  this.img = new Image();
+  this.img.onload = function(){ this.draw(context);}
+  this.img.src = this.src;
+  
+  this.draw = function(ctx){
+     this.img.parentNode.insertBefore(canvas,this.img);
+			  
+	//ctx = canvas.getContext('2d')		  
+	// Draw image to canvas
+	ctx.drawImage(this.img, this.x, this.y);
+  }
+  
+}
+ 
+function init() {
+	canvas=document.getElementById("waterfall");
+	if(canvas.getContext)
+	{
+		context=canvas.getContext("2d");
+		initStageObjects();
+		drawStageObjects();
+		updateStage();
+	}
+}
+ 
+function updateStage() {
+//	t+=frameInterval; 
+	clearCanvas();
+	updateStageObjects();
+	drawStageObjects();	
+	setTimeOut("updateStage()", frameInterval);
+}
+ 
+function initStageObjects() {
+	//myRectangle = new Rectangle (0,50,100,50, 5);
+
+	imgs[0] = new Image();
+	imgs[0].src = 'blue1.png';
+//	imgs[0].parentNode.insertBefore(canvas,imgs[0]);
+	imgs[1] = new Image();
+	imgs[1].src = 'blue2.png';
+//	imgs[1].parentNode.insertBefore(canvas,imgs[1]);
+	imgs[2] = new Image();
+	imgs[2].src = 'blue3.png';
+//	imgs[2].parentNode.insertBefore(canvas,imgs[2]);
+	imgs[3] = new Image();
+	imgs[3].src = 'blue4.png';
+//	imgs[3].parentNode.insertBefore(canvas,imgs[3]);
+	imgs[4] = new Image();
+	imgs[4].src = 'bottom.png';
+//	imgs[4].parentNode.insertBefore(canvas,imgs[4]);
+	
+    //initialize waterfall
+    for(j = 0; j < 5; j++)
+	{
+	  waterfall[j] = [];
+	  for(i = 0; i < 36; i++)
+	  {
+	    var imgNum = Math.floor(Math.random()*(imgs.length-1));
+		waterfall[j][i] = new WaterImage( (14*i)-30, (90*j)-20, imgs[imgNum].src, imgs[imgNum]);
+		//waterfall[j][i].src = documents.images[imgNum]);
+		//waterfall[j][i].
+	  }
+	}
+}
+ 
+function drawStageObjects() {
+
+	for(j = 0; j<5; j++)
+	{
+	  for(i = 0; i<36; i++)
+	  {
+		 waterfall[j][i].draw(context);
+	  
+		//waterfall[j][i].img.parentNode.insertBefore(canvas,waterfall[j][i].img);
+				  
+		//ctx = canvas.getContext('2d')		  
+		// Draw image to canvas
+		//context.drawImage(waterfall[j][i].img ,waterfall[j][i].x,waterfall[j][i].y);	
+	   }
+	}
+	imgs[imgs.length-1].parentNode.insertBefore(canvas, imgs[imgs.length-1]);
+	context.drawImage(imgs[imgs.length-1], 0, 400);
+}
+ 
+function updateStageObjects() {
+	/*var currentX = myRectangle.x;
+ 
+	if (currentX < canvas.width - myRectangle.width - 
+		myRectangle.borderWidth/2) {
+		var newX = currentX + 1;
+		myRectangle.x = newX;
+	}*/
+	
+	for(j=0; j<5; j++)
+	{
+	  for(i=0; i<36; i++)
+	  {
+	    var currentY = waterfall[j][i].y;
+		var newY = 0;
+		if(currentY < canvas.height - 2)
+		{
+		  newY  = currentY + 1;
+		}
+		else
+		{
+		  newY = -20;
+		}
+		waterfall[j][i].y = newY;
+	  }
+	}
+	
+	
+	
+}
+ 
+function clearCanvas() {
+	context.clearRect(0,0,canvas.width, canvas.height);
+}
+ 
+</script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="init();">
+    <center>
+    <canvas id="waterfall" width="500" height="500"></canvas>
+    </center>
+	
+	
+	<br/><br/><br/>
+	<!--<img src="blue1.png">
+	<img src="blue2.png">
+	<img src="blue3.png">
+	<img src="blue4.png">
+	<img src="bottom.png" id="bottom">-->
+  </body>
+</html>
