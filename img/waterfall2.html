@@ -10,17 +10,20 @@ var context = null; // canvas context
  
 var waterfall = []; //Full waterfall
 var imgs = [];
+var simgs = [];
+var flip=0;
+var updateHit=0;
 
 function WaterImage(newX, newY, newSrc){
   this.x =newX;
   this.y =newY;
   this.src =newSrc;
   this.img = new Image();
-  this.img.onload = function(){ this.draw(context);}
+  this.img.onload = function(){ /*draw(context);*/}
   this.img.src = this.src;
   
   this.draw = function(ctx){
-     this.img.parentNode.insertBefore(canvas,this.img);
+     //this.img.parentNode.insertBefore(canvas,this.img);
 			  
 	//ctx = canvas.getContext('2d')		  
 	// Draw image to canvas
@@ -45,7 +48,7 @@ function updateStage() {
 	clearCanvas();
 	updateStageObjects();
 	drawStageObjects();	
-	setTimeOut("updateStage()", frameInterval);
+	setTimeout("updateStage()", frameInterval);
 }
  
 function initStageObjects() {
@@ -53,37 +56,54 @@ function initStageObjects() {
 
 	imgs[0] = new Image();
 	imgs[0].src = 'blue1.png';
+    simgs[0] = new Image();
+    simgs[0].src = 'sblue1.png';	
 //	imgs[0].parentNode.insertBefore(canvas,imgs[0]);
 	imgs[1] = new Image();
 	imgs[1].src = 'blue2.png';
+	simgs[1] = new Image();
+	simgs[1].src = 'sblue2.png';
 //	imgs[1].parentNode.insertBefore(canvas,imgs[1]);
 	imgs[2] = new Image();
 	imgs[2].src = 'blue3.png';
+	simgs[2] = new Image();
+	simgs[2].src = 'sblue3.png';
 //	imgs[2].parentNode.insertBefore(canvas,imgs[2]);
 	imgs[3] = new Image();
 	imgs[3].src = 'blue4.png';
+	simgs[3] = new Image();
+	simgs[3].src = 'sblue4.png';
 //	imgs[3].parentNode.insertBefore(canvas,imgs[3]);
 	imgs[4] = new Image();
 	imgs[4].src = 'bottom.png';
+	simgs[4] = new Image();
+	simgs[4].src = 'bottom.png';
 //	imgs[4].parentNode.insertBefore(canvas,imgs[4]);
 	
     //initialize waterfall
-    for(j = 0; j < 5; j++)
+    for(j = 0; j < 6; j++)
 	{
 	  waterfall[j] = [];
 	  for(i = 0; i < 36; i++)
 	  {
 	    var imgNum = Math.floor(Math.random()*(imgs.length-1));
-		waterfall[j][i] = new WaterImage( (14*i)-30, (90*j)-20, imgs[imgNum].src, imgs[imgNum]);
+		
+		if(flip){
+		  waterfall[j][i] = new WaterImage( (14*i)-30, (90*j)-110, imgs[imgNum].src, imgs[imgNum]);
+		}
+		else{
+		  waterfall[j][i] = new WaterImage( (14*i)-15, (90*j)-110, simgs[imgNum].src, simgs[imgNum]);
+		}
 		//waterfall[j][i].src = documents.images[imgNum]);
 		//waterfall[j][i].
 	  }
+	  flip = 1 - flip;
 	}
 }
  
 function drawStageObjects() {
 
-	for(j = 0; j<5; j++)
+	for(j = 0; j<6; j++)
 	{
 	  for(i = 0; i<36; i++)
 	  {
@@ -96,7 +116,7 @@ function drawStageObjects() {
 		//context.drawImage(waterfall[j][i].img ,waterfall[j][i].x,waterfall[j][i].y);	
 	   }
 	}
-	imgs[imgs.length-1].parentNode.insertBefore(canvas, imgs[imgs.length-1]);
+	//imgs[imgs.length-1].parentNode.insertBefore(canvas, imgs[imgs.length-1]);
 	context.drawImage(imgs[imgs.length-1], 0, 400);
 }
  
@@ -109,21 +129,36 @@ function updateStageObjects() {
 		myRectangle.x = newX;
 	}*/
 	
-	for(j=0; j<5; j++)
+	for(j=0; j<6; j++)
 	{
 	  for(i=0; i<36; i++)
 	  {
 	    var currentY = waterfall[j][i].y;
 		var newY = 0;
-		if(currentY < canvas.height - 2)
+		if(currentY < 450)
 		{
 		  newY  = currentY + 1;
 		}
 		else
 		{
-		  newY = -20;
+		  updateHit++;
+		  var imgNum = Math.floor(Math.random()*(imgs.length-1));
+		  if(flip)
+		  {
+			waterfall[j][i] = new WaterImage( (14*i)-30, -110, imgs[imgNum].src, imgs[imgNum]);
+		  }
+		  else
+		  {
+		    waterfall[j][i] = new WaterImage( (14*i)-15, -110, simgs[imgNum].src, imgs[imgNum]);
+		  } 
+		  newY = -110;
 		}
 		waterfall[j][i].y = newY;
+	  }
+	  if(updateHit > 0)
+	  {
+	    flip = 1 - flip;
+		updateHit = 0;
 	  }
 	}
 	
