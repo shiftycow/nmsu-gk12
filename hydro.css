@@ -1,0 +1,41 @@
+/* hydro.css
+*
+*/
+
+/**********************************************************/
+/* Multi-column layout stuff */
+/**********************************************************/
+
+div#column_container
+{
+    /* this element holds the columns and provides a
+    *  way to center them in the page  */
+    width: 1024%;
+    height: 100%; /* for pinning things to broswer window */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#column1
+{
+    float: left;
+    width: 640px;
+    height: 480px%; /* pinned to the browser window */
+    overflow: auto;
+    position: relative;
+    background-color: red;
+}
+
+div#column2
+{
+    float: left;
+    border:0px;
+    border-top: 1px dotted gray;
+    margin-left: 10px;
+    width: 360px;
+    height: 100%;
+    overflow: auto;
+    padding:20px;
+    background-color: blue;
+}
+
