@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Hydroelectric Dam Simulation</title>
+		<link type="text/css" href="jquery/css/smoothness/jquery-ui-1.8.9.custom.css" rel="stylesheet" />	
+		
+		<script type="text/javascript">
+		
+		var img;
+		var canvas = null; // canvas DOM object
+		var context = null; // canvas context
+		
+		
+		function init()
+		{
+			canvas=document.getElementById("dam_canvas");
+			if(canvas.getContext)
+			{
+				img = new Image();
+				img.src = 'img/DamPrototype.svg';
+				context=canvas.getContext("2d");
+				draw();
+			}
+		}
+		
+		function draw(){
+			context.drawImage(img, 0, 0);
+		}
+		
+		</script>
+		
+		<script type="text/javascript" src="jquery/js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="jquery/js/jquery-ui-1.8.9.custom.min.js"></script>
+		
+        <link type="text/css" href="default.css" rel="stylesheet" />	
+        <link type="text/css" href="hydrodemo.css" rel="stylesheet" />	
+
+	</head>
+	<body>
+
+<div id="header"> 
+<h1>Hydroelectric Dam Simulation</h1> 
+</div><!--end header--> 
+ 
+<div id="content">
+<div id="column_container">
+<div id="column1">
+<!--<canvas id="dam_canvas" width="960" height="720"> 
+This demo requires browser support for the &lt;canvas&gt; element. This can be found in recent versions of Firefox, Chrome, and Safari.
+</canvas> 
+-->
+<embed src="img/DamPrototype.svg" width="960" height="720"
+type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" />
+
+<!--<svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <use xlink="img/DamPrototype.svg"/>
+</svg>-->
+</div><!--end column1-->
+
+<div id="column2">
+<div id="controls">     
+    <div id="height_slider" style="height:720px;"></div> 
+    <script type="text/javascript"> 
+        //initialize the incidence slider
+        $("#height_slider").slider({orientation: "vertical"});
+    </script>
+</div><!--end controlls-->
+</div><!--end col2-->
+
+<div id="column3">
+<div id="forms">
+	<b>Valve Setting:</b><input id="Valves" type="text" value="Initial Setting"/><br/>
+	<b>Power Generated:</b><input id="Power" type="text" value="Initial Setting"/>
+</div><!-- end forms-->
+ 
+</div><!--end column3-->
+
+</div><!--end content--> 
+ 
+</div><!--end container--> 	
+
+
+    </body>
+</html>
+
+
