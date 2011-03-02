@@ -29,9 +29,11 @@ This demo requires browser support for the &lt;canvas&gt; element. This can be f
 <div id="controls">    
     <div id="height_slider" style="height: 480px; float: left"></div> 
     <div id="other_controls" style="float: left; padding-left: 20px;">
-        Height of water: <input type="text" id="level" />meters<br />
+        Height of water: <input type="text" id="height_input" size="3"/>meters<br />
         <br /> 
-        Power Generated: <input type="text" id="power" readonly/>Watts<br />
+        Power Generated: <input type="text" id="power_output" readonly size="5"/>Watts<br />
+        <div id="lightbulbs"></div><!--div to hold the animated lightbulbs-->
+
         <div class="info ui-state-highlight ui-corner-all">
             Power generated = h * r * G * k
             <ul>
@@ -40,20 +42,72 @@ This demo requires browser support for the &lt;canvas&gt; element. This can be f
                 <li>g = Gravitational accelleration (9.8m/s^s)</li>
                 <li>k = efficiency of the generator ( 0 &lt; k &lt; 1)</li>
             </ul>
-            </div>
-    </div>
+        </div><!--end equation info div-->
+    </div><!--end "other controls"-->
 
     <script type="text/javascript"> 
+        //default variables
+        var default_height = 20;
+
+        function power_generated(h,r,k)
+        {
+            //power calculation function
+            
+            var power = h * r * 9.8 * k;
+            return power;
+        }//end power generated
+       
+        function update_screen()
+        {
+            //function that updates the various display elements based on user input
+            
+            var h = parseFloat($("#height_input").val());
+            var r = 0.5; //parseInt($("#flow_rate_input").val());
+            var k = 0.8; //parseInt($("flow_rate_input").val());
+            
+            var power = power_generated(h,r,k);
+            $("#power_output").val(power);
+        }//end update_screen
+       
+        function set_height()
+        {
+            //sets the height of the slider programmatically
+            //used when users enter text directly
+            var h = parseFloat($("#height_input").val());
+            $("#height_slider").value(h);
+            //the "change" event of the slider will be invoked 
+            //by the "value" method, so we don't have to update anything
+            //manually here
+        }//emd set height
+
+        function update_height(h)
+        {
+            //updates the height entry field and updates the screen
+            ($("#height_input").val(h)); 
+            update_screen();
+        }//end update height
+
         //script to initialize the controls
-        $("#height_slider").slider({orientation: "vertical"});
+        $("#height_slider").slider({
+                                    orientation: "vertical",
+                                    min: 0,
+                                    max: 100,
+                                    range: "min",
+                                    animate: true,
+                                    value: default_height,
+                                    change: function(event,ui){
+                                                update_height(ui.value); 
+                                            },
+
+                                    create: function(event,ui){
+                                                update_height(default_height); 
+                                            }//end create
+                                    });
     </script>
-
-    
 </div><!--end controlls--> 
-</div><!--end column2-->
 
-</div><!--end content--> 
- 
+</div><!--end column2-->
+</div><!--end content-->  
 </div><!--end container--> 	
 
 
