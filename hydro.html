@@ -29,7 +29,7 @@ This demo requires browser support for the &lt;canvas&gt; element. This can be f
 <div id="controls">    
     <div id="height_slider" style="height: 480px; float: left"></div> 
     <div id="other_controls" style="float: left; padding-left: 20px;">
-        Height of water: <input type="text" id="height_input" size="3"/>meters<br />
+        Height of water: <input type="text" id="height_input" size="3" onchange="set_height()"/>meters<br />
         <br /> 
         Power Generated: <input type="text" id="power_output" readonly size="5"/>Watts<br />
         <div id="lightbulbs"></div><!--div to hold the animated lightbulbs-->
@@ -74,7 +74,7 @@ This demo requires browser support for the &lt;canvas&gt; element. This can be f
             //sets the height of the slider programmatically
             //used when users enter text directly
             var h = parseFloat($("#height_input").val());
-            $("#height_slider").value(h);
+            $("#height_slider").slider("value", h);
             //the "change" event of the slider will be invoked 
             //by the "value" method, so we don't have to update anything
             //manually here
