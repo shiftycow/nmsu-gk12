@@ -28,6 +28,14 @@
 			context.drawImage(img, 0, 0);
 		}
 		
+		
+		function update(){
+			//$( "#Level" ).val($( "#height_slider" ).slider( "values", 0 ));
+		  
+			$( "#height_slider").values[0] = $("#Level").val;
+		
+		}
+		
 		</script>
 		
 		<script type="text/javascript" src="jquery/js/jquery-1.4.4.min.js"></script>
@@ -50,7 +58,7 @@
 This demo requires browser support for the &lt;canvas&gt; element. This can be found in recent versions of Firefox, Chrome, and Safari.
 </canvas> 
 -->
-<embed src="img/DamPrototype.svg" width="960" height="720"
+<embed src="img/WaterfallSimulationDraftDesign.svg" width="960" height="720"
 type="image/svg+xml"
 pluginspage="http://www.adobe.com/svg/viewer/install/" />
 
@@ -61,18 +69,44 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
 
 <div id="column2">
 <div id="controls">     
-    <div id="height_slider" style="height:720px;"></div> 
+    <div id="height_slider" style="height:700px;"></div> 
     <script type="text/javascript"> 
         //initialize the incidence slider
-        $("#height_slider").slider({orientation: "vertical"});
-    </script>
+        //$("#height_slider").slider({orientation: "vertical"});
+//<meta charset="utf-8">
+	//<style>
+	//#demo-frame > div.demo { padding: 10px !important; };
+	//</style>
+	//<script>
+	$(function() {
+		$( "#height_slider" ).slider({
+			orientation: "vertical",
+			//height: 50;
+			//range: true,
+			values: [ 50 ],
+			slide: function( event, ui ) {
+				$( "#Level" ).val( ui.values[ 0 ] );
+				var Pow = $("#Level") * 10 * 9.8 * 0.5; //water * flow * G * k
+				$( "#Power" ).val(Pow);
+			}
+		});
+		$( "#Level" ).val($( "#height_slider" ).slider( "values", 0 ));
+		$( "#Power" ).val($( "#height_slider").slider( "values", 0)* 10 * 9.8 * 0.5);
+	});
+	</script>
+
 </div><!--end controlls-->
 </div><!--end col2-->
 
 <div id="column3">
 <div id="forms">
-	<b>Valve Setting:</b><input id="Valves" type="text" value="Initial Setting"/><br/>
-	<b>Power Generated:</b><input id="Power" type="text" value="Initial Setting"/>
+	<b>Water Level:</b><input id="Level" type="text"/><br/>
+	<b>Power Generated:</b><input id="Power" type="text" value="20"/><br/>
+	<input id="Update" type="Submit" value="Update Values" onclick="update()"/><br/>
+	<p>Power = Water Level * Flow of Water * gravity * effiecency</p><br/>
+	<p>Water Level: Meters<p>
+	<p>Flow of Water: Density of Water * Area of Pipe * Velocity of Water (Uniform)</p>
+	<p>Efficiency: somewhere between 0 and 1</p>
 </div><!-- end forms-->
  
 </div><!--end column3-->
