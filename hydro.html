@@ -26,12 +26,29 @@ This demo requires browser support for the &lt;canvas&gt; element. This can be f
 </div><!--end column1-->
 
 <div id="column2">
-<div id="controls">     
-    <div id="height_slider" style="height:480px;"></div> 
+<div id="controls">    
+    <div id="height_slider" style="height: 480px; float: left"></div> 
+    <div id="other_controls" style="float: left; padding-left: 20px;">
+        Height of water: <input type="text" id="level" />meters<br />
+        <br /> 
+        Power Generated: <input type="text" id="power" readonly/>Watts<br />
+        <div class="info ui-state-highlight ui-corner-all">
+            Power generated = h * r * G * k
+            <ul>
+                <li>h = height of water (meters)</li>
+                <li>r = flow rate of water (meters^3/s)</li>
+                <li>g = Gravitational accelleration (9.8m/s^s)</li>
+                <li>k = efficiency of the generator ( 0 &lt; k &lt; 1)</li>
+            </ul>
+            </div>
+    </div>
+
     <script type="text/javascript"> 
-        //initialize the incidence slider
+        //script to initialize the controls
         $("#height_slider").slider({orientation: "vertical"});
     </script>
+
+    
 </div><!--end controlls--> 
 </div><!--end column2-->
 
