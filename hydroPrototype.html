@@ -28,12 +28,45 @@
 			context.drawImage(img, 0, 0);
 		}
 		
-		
+		var PowConstant = 10 * 9.8 * 0.5; //Flow * G * k		
 		function update(){
+			console.log("Hit update()");
 			//$( "#Level" ).val($( "#height_slider" ).slider( "values", 0 ));
-		  
-			$( "#height_slider").values[0] = $("#Level").val;
-		
+			if( $("#height_slider").slider != null)
+			{
+				console.log("	update(): height_slider.slider isn't null");
+				if( $( "#height_slider").slider.values != null)
+				{
+					console.log("		update(): height_slider.slider.values isn't null");
+					$( "#height_slider").slider.values[0] = $("#Level").val();
+					$( "#Power" ).val($("#Level").val() * 10 * 9.8 * 0.5);
+				}
+				else
+				{
+					console.log("		update(): height_slider.slider.values is null");
+					console.log("		update(): creating values[] for slider, #Level.val=="+ $("#Level").val());
+					$( "#height_slider" ).slider.values = [];
+					//$( "#height_slider" ).slider.ui.values = [];
+					$( "#height_slider").slider.values[0] = $("#Level").val();
+					//$( "#height_slider").slider.ui.values[0] = $("#Level").val();
+					$( "#Power" ).val($("#Level").val() * 10 * 9.8 * 0.5);				
+				}
+			}
+			else
+			{
+				console.log("	update(): height_slider.slider is null");
+				$( "#height_slider" ).slider({
+					orientation: "vertical",
+					//height: 50;
+					//range: true,
+					values: [ $("#Level").val() ],
+					slide: function( event, ui ) {
+						$( "#Level" ).val( ui.values[ 0 ] );
+						var Pow = $("#Level").val();// * PowConstant; //water * PowConstant
+						$( "#Power" ).val(Pow);
+					}
+				});
+			}
 		}
 		
 		</script>
@@ -79,6 +112,7 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
 	//</style>
 	//<script>
 	$(function() {
+		var PowConstant = 10 * 9.8 * 0.5; //Flow * G * k
 		$( "#height_slider" ).slider({
 			orientation: "vertical",
 			//height: 50;
@@ -86,12 +120,12 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
 			values: [ 50 ],
 			slide: function( event, ui ) {
 				$( "#Level" ).val( ui.values[ 0 ] );
-				var Pow = $("#Level") * 10 * 9.8 * 0.5; //water * flow * G * k
+				var Pow = $("#Level").val() * PowConstant; //water * PowConstant
 				$( "#Power" ).val(Pow);
 			}
 		});
 		$( "#Level" ).val($( "#height_slider" ).slider( "values", 0 ));
-		$( "#Power" ).val($( "#height_slider").slider( "values", 0)* 10 * 9.8 * 0.5);
+		$( "#Power" ).val($( "#Level" ).val() * PowConstant);
 	});
 	</script>
 
@@ -103,7 +137,7 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
 	<b>Water Level:</b><input id="Level" type="text"/><br/>
 	<b>Power Generated:</b><input id="Power" type="text" value="20"/><br/>
 	<input id="Update" type="Submit" value="Update Values" onclick="update()"/><br/>
-	<p>Power = Water Level * Flow of Water * gravity * effiecency</p><br/>
+	<p>Power = Water Level * Flow of Water * gravity * efficiency</p><br/>
 	<p>Water Level: Meters<p>
 	<p>Flow of Water: Density of Water * Area of Pipe * Velocity of Water (Uniform)</p>
 	<p>Efficiency: somewhere between 0 and 1</p>
