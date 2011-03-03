@@ -53,6 +53,8 @@
         <br /> 
         Power Generated: <input type="text" id="power_output" readonly size="5"/>Watts<br />
         <div id="lightbulbs"></div><!--div to hold the animated lightbulbs-->
+        <div id="houses"></div>
+        <div id="tv"></div>
 
         <div class="info ui-state-highlight ui-corner-all">
             Power generated = h * r * G * k
@@ -102,6 +104,8 @@
             
             var power = power_generated(h,r,k);
             $("#power_output").val(power);
+            
+            
         }//end update_screen
        
         function set_height()
@@ -163,11 +167,11 @@
             h_v_time.push([i,h]);
             
             //update graphs
-            $.plot($("#h_v_time_graph"),[   {label: "Water Height (m)", data: h_v_time}],                              
+            /*$.plot($("#h_v_time_graph"),[   {label: "Water Height (m)", data: h_v_time}],                              
                                             {yaxis: {ticks: 20, min: 0, max: max_h}}
                     );
-
-            $.plot($("#x_v_time_graph"),[{label: "Power Generated (KW)", data: power_v_time},
+            */
+            $.plot($("#h_v_time_graph"),[{label: "Power Generated (KW)", data: power_v_time},
                                          {label: "Water Height (m)", data: h_v_time}
                                          ]); 
             $.plot($("#power_v_h_graph"),[power_v_h]);
