@@ -21,8 +21,8 @@ div#column1
     float: left;
     width: 49%;
     min-width: 640px;
-    height: 480px; /* pinned to the browser window */
-    overflow: hidden;
+    height: 100%;
+    overflow: auto;
     position: relative;
     text-align: right;
 }

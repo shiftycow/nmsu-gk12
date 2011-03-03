@@ -7,10 +7,10 @@
 		<script type="text/javascript" src="jquery/js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript" src="jquery/js/jquery-ui-1.8.9.custom.min.js"></script>
 		<script type="text/javascript" src="jquery/js/jquery.svg.js"></script>
+		<script type="text/javascript" src="jquery/js/flot/jquery.flot.js"></script>
 		
         <link type="text/css" href="default.css" rel="stylesheet" />	
         <link type="text/css" href="hydro.css" rel="stylesheet" />	
-
 	</head>
 	<body>
 
@@ -26,7 +26,6 @@
         <!--<canvas id="demo_canvas" width="640" height="480"> 
         This demo requires browser support for the &lt;canvas&gt; element. This can be found in recent versions of Firefox, Chrome, and Safari.
         </canvas>--> 
-        <embed id="dam_img" src="img/dam_cross_section.svg" width="640" height="480" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
         <div id="dam_img"></div>
         <script type="text/javascript">
             //load the SVG into the above div using jquery's svg plugin
@@ -35,7 +34,15 @@
         <!--
         <object data="img/dam_cross_section.svg" width="640" height="480" />
         -->
-
+ <div id="graphs">
+        <div id="h_v_time_graph" style="width: 640px; height: 480px;"></div>
+        <div id="power_v_time_graph" style="width: 640px; height: 300px;"></div>
+        
+        <div id="x_v_time_graph" style="width: 640px; height: 300px;"></div>
+        <div id="power_v_h_graph" style="width: 640px; height: 300px;"></div>
+        <div id="power_v_r_graph" style="width: 640px; height: 300px;"></div>
+        <div id="power_v_k_graph" style="width: 640px; height; 300px;"></div>
+    </div><!--end graphs-->
 </div><!--end column1-->
 
 <div id="column2">
@@ -56,11 +63,25 @@
                 <li>k = efficiency of the generator ( 0 &lt; k &lt; 1)</li>
             </ul>
         </div><!--end equation info div-->
+        <input type="button" onclick="add_point()" name="add_point" value="Add to Graph!" />
+        <div id="i" style="display: none">0</div><!--holds the i global javascript variable-->
     </div><!--end "other controls"-->
+   
 
     <script type="text/javascript"> 
         //default variables
-        var default_height = 20;
+        var default_h = 20; //
+        var default_r = 20; //flow rate (cubic meters/s)
+        var default_k = 0.9; //efficiency of generator (percent)
+        
+        var max_h = 100;
+
+        //data series for graphing
+        var power_v_h = [];
+        var power_v_k = [];
+        var power_v_r = [];
+        var power_v_time = [];
+        var h_v_time = [];
 
         function power_generated(h,r,k)
         {
@@ -98,8 +119,8 @@
             //updates the height entry field and updates the screen
             ($("#height_input").val(h)); 
             
-            var svg = $("#dam_img").svg('get');
-            $("#lake_water",svg.root()).attr('fill',"#666");
+            //var svg = $("#dam_img").svg('get');
+            //$("#lake_water",svg.root()).attr('fill',"#666");
             update_screen();
         }//end update height
 
@@ -112,20 +133,47 @@
                                     max: 100,
                                     range: "min",
                                     animate: true,
-                                    value: default_height,
+                                    value: default_h,
                                     change: function(event,ui){
                                                 update_height(ui.value); 
                                             },
 
                                     create: function(event,ui){
-                                                update_height(default_height); 
+                                                update_height(default_h); 
                                             }//end create
                                     });
         }//end init_controls
 
+        
+        //graphing methods
+        function add_point()
+        {
+            var h = parseFloat($("#height_input").val());
+            var p = parseFloat($("#power_output").val());
+            //increment i and store it again
+            var i = parseInt($("#i").html());
+            i++;
+            $("#i").html(i);
+            
+            //push points onto data series
+            power_v_h.push([h,p]);
+            
+            power_v_time.push([i,p]);
+            h_v_time.push([i,h]);
+            
+            //update graphs
+            $.plot($("#h_v_time_graph"),[   {label: "Water Height (m)", data: h_v_time}],                              
+                                            {yaxis: {ticks: 20, min: 0, max: max_h}}
+                    );
+
+            $.plot($("#x_v_time_graph"),[{label: "Power Generated (KW)", data: power_v_time},
+                                         {label: "Water Height (m)", data: h_v_time}
+                                         ]); 
+            $.plot($("#power_v_h_graph"),[power_v_h]);
+        }//end add point 
+
         //wait for the whole DOM to load and initialize the controls
         $.ready(init_controls());
-            
     </script>
 </div><!--end controlls--> 
 
