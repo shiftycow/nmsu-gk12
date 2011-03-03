@@ -6,6 +6,7 @@
 		<link type="text/css" href="jquery/css/smoothness/jquery-ui-1.8.9.custom.css" rel="stylesheet" />	
 		<script type="text/javascript" src="jquery/js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript" src="jquery/js/jquery-ui-1.8.9.custom.min.js"></script>
+		<script type="text/javascript" src="jquery/js/jquery.svg.js"></script>
 		
         <link type="text/css" href="default.css" rel="stylesheet" />	
         <link type="text/css" href="hydro.css" rel="stylesheet" />	
@@ -20,14 +21,20 @@
  
 <div id="content">
 <div id="column_container">
-<div id="column1">
-<!--<canvas id="demo_canvas" width="640" height="480"> 
-This demo requires browser support for the &lt;canvas&gt; element. This can be found in recent versions of Firefox, Chrome, and Safari.
-</canvas>--> 
-<embed src="img/WaterfallSimulationDraftDesign.svg" width="960" height="520"
-type="image/svg+xml"
-pluginspage="http://www.adobe.com/svg/viewer/install/" />
 
+<div id="column1">
+        <!--<canvas id="demo_canvas" width="640" height="480"> 
+        This demo requires browser support for the &lt;canvas&gt; element. This can be found in recent versions of Firefox, Chrome, and Safari.
+        </canvas>--> 
+        <embed id="dam_img" src="img/dam_cross_section.svg" width="640" height="480" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+        <div id="dam_img"></div>
+        <script type="text/javascript">
+            //load the SVG into the above div using jquery's svg plugin
+        </script>
+
+        <!--
+        <object data="img/dam_cross_section.svg" width="640" height="480" />
+        -->
 
 </div><!--end column1-->
 
@@ -90,11 +97,16 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
         {
             //updates the height entry field and updates the screen
             ($("#height_input").val(h)); 
+            
+            var svg = $("#dam_img").svg('get');
+            $("#lake_water",svg.root()).attr('fill',"#666");
             update_screen();
         }//end update height
 
         //script to initialize the controls
-        $("#height_slider").slider({
+        function init_controls()
+        {
+            $("#height_slider").slider({
                                     orientation: "vertical",
                                     min: 0,
                                     max: 100,
@@ -109,6 +121,11 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" />
                                                 update_height(default_height); 
                                             }//end create
                                     });
+        }//end init_controls
+
+        //wait for the whole DOM to load and initialize the controls
+        $.ready(init_controls());
+            
     </script>
 </div><!--end controlls--> 
 
