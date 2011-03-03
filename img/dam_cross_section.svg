@@ -63,9 +63,9 @@
        id="g3870"
        transform="matrix(-1,0,0,1,640.71429,0)">
       <svg:rect
-         transform="translate(0,572.36218)"
-         y="395.65225"
-         x="527.80469"
+         transform="scale(-1,1)"
+         y="968.0144"
+         x="-112.9096"
          height="32.324883"
          width="112.63201"
          id="rect3844"
@@ -73,16 +73,17 @@
       <svg:rect
          ry="2.6785541"
          y="894.005"
-         x="395.5"
+         x="-245.21429"
          height="108.57143"
          width="132.14285"
          id="rect3780"
-         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         transform="scale(-1,1)" />
       <svg:rect
          ry="0"
-         transform="translate(0,572.36218)"
-         y="56.241009"
-         x="0"
+         transform="scale(-1,1)"
+         y="628.60321"
+         x="-640.71429"
          height="295.4696"
          width="255.06352"
          id="lake_water"
@@ -91,32 +92,32 @@
       <svg:path
          inkscape:connector-curvature="0"
          id="path2989"
-         d="m 427.42857,1002.2193 -103.42813,-385.99902 -68.71473,0 0,413.85622 174.28572,0 z"
+         d="m 213.28572,1002.2193 103.42813,-385.99902 68.71473,0 0,413.85622 -174.28572,0 z"
          style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:path
          sodipodi:nodetypes="ccccccc"
-         transform="translate(0,572.36218)"
          inkscape:connector-curvature="0"
          id="path2985"
-         d="m 0,352.14286 312.71429,0 38,76.42857 290,0 0,54.28571 -640.1428614,0 z"
+         d="m 640.71429,924.50504 -312.71429,0 -38,76.42856 -290,0 0,54.2857 640.14286,0 z"
          style="fill:#a38a66;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:rect
          ry="7.7678571"
          y="928.76025"
-         x="427.21429"
+         x="-213.5"
          height="30.476957"
          width="73.70948"
          id="rect3782"
-         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:1.07862687;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:1.07862687;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         transform="scale(-1,1)" />
       <svg:path
          sodipodi:nodetypes="csccccc"
-         transform="translate(0,572.36218)"
          inkscape:connector-curvature="0"
          id="path3778"
-         d="m 255.26786,352.23214 c 0,0 124.1268,34.70742 127.64376,34.70742 3.51695,0 51.37409,0 51.37409,0 l 0,-30.51099 -49.28571,0 -129.69023,-35.42811 z"
+         d="m 385.44643,924.59432 c 0,0 -124.1268,34.70742 -127.64376,34.70742 -3.51695,0 -51.37409,0 -51.37409,0 l 0,-30.51099 49.28571,0 129.69023,-35.42811 z"
          style="fill:#6697a3;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:g
-         id="g3802">
+         id="g3802"
+         transform="matrix(-1,0,0,1,640.71429,0)">
         <svg:rect
            style="fill:#a4a4a4;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            id="rect3797"
@@ -157,27 +158,29 @@
       <svg:rect
          ry="3.6854284"
          y="900.04071"
-         x="425.35715"
+         x="-215.35715"
          height="25.357143"
          width="71.001968"
          id="rect3810"
-         style="fill:#7c7979;fill-opacity:1;stroke:#000000;stroke-width:1.01624596;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#7c7979;fill-opacity:1;stroke:#000000;stroke-width:1.01624596;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         transform="scale(-1,1)" />
       <svg:rect
          ry="3.6854284"
          y="911.21466"
-         x="452.05762"
+         x="-188.65668"
          height="14.004628"
          width="31.956196"
          id="rect3808"
-         style="fill:#4d7f5e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#4d7f5e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         transform="scale(-1,1)" />
       <svg:path
          sodipodi:nodetypes="ccscccscc"
          inkscape:connector-curvature="0"
          id="path3826"
-         d="m 458.04326,959.32416 0,22.73372 c 0,0 -0.73798,11.03902 12.79171,11.03902 13.52969,0 63.15691,0 63.15691,0 l 0,-17.48964 -50.22242,0 c 0,0 -6.64185,-0.37632 -6.64185,-6.77396 0,-6.39763 0,-9.50914 0,-9.50914 z"
+         d="m 182.67103,959.32416 0,22.73372 c 0,0 0.73798,11.03902 -12.79171,11.03902 -13.52969,0 -63.15691,0 -63.15691,0 l 0,-17.48964 50.22242,0 c 0,0 6.64185,-0.37632 6.64185,-6.77396 0,-6.39763 0,-9.50914 0,-9.50914 z"
          style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:0.99672669px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:g
-         transform="translate(-1.767767,65.02857)"
+         transform="matrix(-1,0,0,1,642.48206,65.02857)"
          id="g3836">
         <svg:path
            sodipodi:type="arc"
@@ -210,8 +213,8 @@
            transform="translate(0,572.36218)" />
       </svg:g>
       <svg:path
-         transform="translate(0,572.36218)"
-         d="m 468.52137,372.4819 c 0,4.3934 -0.39573,7.95495 -0.88389,7.95495 -0.48815,0 -0.88388,-3.56155 -0.88388,-7.95495 0,-4.3934 0.39573,-7.95495 0.88388,-7.95495 0.48816,0 0.88389,3.56155 0.88389,7.95495 z"
+         transform="matrix(-1,0,0,1,640.71429,572.36218)"
+         d="m 468.52137,372.4819 a 0.88388348,7.9549513 0 1 1 -1.76777,0 0.88388348,7.9549513 0 1 1 1.76777,0 z"
          sodipodi:ry="7.9549513"
          sodipodi:rx="0.88388348"
          sodipodi:cy="372.4819"
