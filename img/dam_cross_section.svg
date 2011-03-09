@@ -8,14 +8,41 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="640"
-   height="480"
+   width="480px"
+   height="360px"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
    sodipodi:docname="dam_cross_section.svg">
   <svg:defs
-     id="defs4" />
+     id="defs4">
+    <svg:marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <svg:path
+         id="path3894"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </svg:marker>
+    <svg:marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <svg:path
+         id="path3897"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </svg:marker>
+  </svg:defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,15 +51,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="254.43704"
-     inkscape:cy="212.81258"
+     inkscape:cx="260.49523"
+     inkscape:cy="127.09702"
      inkscape:document-units="px"
      inkscape:current-layer="g3870"
      showgrid="false"
      inkscape:window-width="1540"
-     inkscape:window-height="1179"
-     inkscape:window-x="904"
-     inkscape:window-y="88"
+     inkscape:window-height="1119"
+     inkscape:window-x="378"
+     inkscape:window-y="25"
      inkscape:window-maximized="0">
     <script
        type="text/javascript"> 
@@ -50,7 +77,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </svg:metadata>
@@ -64,60 +91,60 @@
        transform="matrix(-1,0,0,1,640.71429,0)">
       <svg:rect
          transform="scale(-1,1)"
-         y="968.0144"
-         x="-112.9096"
-         height="32.324883"
-         width="112.63201"
+         y="869.64636"
+         x="-249.7093"
+         height="23.299084"
+         width="81.182747"
          id="rect3844"
-         style="fill:#61d4dd;fill-opacity:1;stroke:#3d7c80;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#61d4dd;fill-opacity:1;stroke:#3d7c80;stroke-width:0.72077858;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
       <svg:rect
-         ry="2.6785541"
-         y="894.005"
-         x="-245.21429"
-         height="108.57143"
-         width="132.14285"
+         ry="1.9306444"
+         y="816.30194"
+         x="-345.07169"
+         height="78.255959"
+         width="95.245743"
          id="rect3780"
-         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-width:0.72077858;stroke-opacity:1"
          transform="scale(-1,1)" />
       <svg:rect
          ry="0"
          transform="scale(-1,1)"
-         y="628.60321"
-         x="-640.71429"
-         height="295.4696"
-         width="255.06352"
+         y="625.00604"
+         x="-630.13959"
+         height="212.96817"
+         width="183.84433"
          id="lake_water"
-         style="fill:#61d4dd;fill-opacity:1;stroke:#3d7c80;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#61d4dd;fill-opacity:1;stroke:#3d7c80;stroke-width:0.72077858;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          inkscape:label="#rect3842" />
       <svg:path
          inkscape:connector-curvature="0"
          id="path2989"
-         d="m 213.28572,1002.2193 103.42813,-385.99902 68.71473,0 0,413.85622 -174.28572,0 z"
-         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         d="m 322.05825,894.3005 74.54878,-278.21983 49.52811,0 0,298.29871 -125.62142,0 z"
+         style="fill:#dedede;fill-opacity:1;stroke:#000000;stroke-width:0.72077858px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:path
          sodipodi:nodetypes="ccccccc"
          inkscape:connector-curvature="0"
          id="path2985"
-         d="m 640.71429,924.50504 -312.71429,0 -38,76.42856 -290,0 0,54.2857 640.14286,0 z"
-         style="fill:#a38a66;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         d="m 630.13961,838.28573 -225.39777,0 -27.38958,55.08807 -209.0258,0 0,39.12797 461.40128,0 z"
+         style="fill:#a38a66;fill-opacity:1;stroke:#000000;stroke-width:0.72077858px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:rect
-         ry="7.7678571"
-         y="928.76025"
-         x="-213.5"
-         height="30.476957"
-         width="73.70948"
+         ry="5.5989051"
+         y="841.35278"
+         x="-322.21268"
+         height="21.967138"
+         width="53.128216"
          id="rect3782"
-         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:1.07862687;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:0.77745116;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          transform="scale(-1,1)" />
       <svg:path
          sodipodi:nodetypes="csccccc"
          inkscape:connector-curvature="0"
          id="path3778"
-         d="m 385.44643,924.59432 c 0,0 -124.1268,34.70742 -127.64376,34.70742 -3.51695,0 -51.37409,0 -51.37409,0 l 0,-30.51099 49.28571,0 129.69023,-35.42811 z"
-         style="fill:#6697a3;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         d="m 446.148,838.35008 c 0,0 -89.46794,25.01636 -92.00289,25.01636 -2.53494,0 -37.02934,0 -37.02934,0 l 0,-21.99167 35.52408,0 93.47794,-25.53582 z"
+         style="fill:#6697a3;fill-opacity:1;stroke:#000000;stroke-width:0.72077858px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:g
          id="g3802"
-         transform="matrix(-1,0,0,1,640.71429,0)">
+         transform="matrix(-0.7207786,0,0,0.7207786,630.13961,171.92228)">
         <svg:rect
            style="fill:#a4a4a4;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            id="rect3797"
@@ -156,31 +183,31 @@
            ry="5.3571429" />
       </svg:g>
       <svg:rect
-         ry="3.6854284"
-         y="900.04071"
-         x="-215.35715"
-         height="25.357143"
-         width="71.001968"
+         ry="2.6563778"
+         y="820.65234"
+         x="-323.55127"
+         height="18.276886"
+         width="51.176701"
          id="rect3810"
-         style="fill:#7c7979;fill-opacity:1;stroke:#000000;stroke-width:1.01624596;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#7c7979;fill-opacity:1;stroke:#000000;stroke-width:0.73248833;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          transform="scale(-1,1)" />
       <svg:rect
-         ry="3.6854284"
-         y="911.21466"
-         x="-188.65668"
-         height="14.004628"
-         width="31.956196"
+         ry="2.6563778"
+         y="828.7063"
+         x="-304.30615"
+         height="10.094236"
+         width="23.033342"
          id="rect3808"
-         style="fill:#4d7f5e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#4d7f5e;fill-opacity:1;stroke:#000000;stroke-width:0.72077858;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          transform="scale(-1,1)" />
       <svg:path
          sodipodi:nodetypes="ccscccscc"
          inkscape:connector-curvature="0"
          id="path3826"
-         d="m 182.67103,959.32416 0,22.73372 c 0,0 0.73798,11.03902 -12.79171,11.03902 -13.52969,0 -63.15691,0 -63.15691,0 l 0,-17.48964 50.22242,0 c 0,0 6.64185,-0.37632 6.64185,-6.77396 0,-6.39763 0,-9.50914 0,-9.50914 z"
-         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:0.99672669px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         d="m 299.99183,863.3826 0,16.38598 c 0,0 0.53192,7.95669 -9.21999,7.95669 -9.75191,0 -45.52215,0 -45.52215,0 l 0,-12.60616 36.19925,0 c 0,0 4.7873,-0.27124 4.7873,-4.88252 0,-4.61128 0,-6.85399 0,-6.85399 z"
+         style="fill:#6fc6d1;fill-opacity:1;stroke:#000000;stroke-width:0.71841925px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <svg:g
-         transform="matrix(-1,0,0,1,642.48206,65.02857)"
+         transform="matrix(-0.7207786,0,0,0.7207786,631.41378,218.79348)"
          id="g3836">
         <svg:path
            sodipodi:type="arc"
@@ -213,7 +240,7 @@
            transform="translate(0,572.36218)" />
       </svg:g>
       <svg:path
-         transform="matrix(-1,0,0,1,640.71429,572.36218)"
+         transform="matrix(-0.7207786,0,0,0.7207786,630.13961,584.46869)"
          d="m 468.52137,372.4819 a 0.88388348,7.9549513 0 1 1 -1.76777,0 0.88388348,7.9549513 0 1 1 1.76777,0 z"
          sodipodi:ry="7.9549513"
          sodipodi:rx="0.88388348"
@@ -222,6 +249,106 @@
          id="path3846"
          style="fill:#bcbcbc;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          sodipodi:type="arc" />
+      <svg:g
+         id="g6201"
+         transform="translate(-80,0)">
+        <svg:path
+           inkscape:connector-curvature="0"
+           id="path3113"
+           d="m 648.57143,625.07647 0,90.71428"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:none" />
+        <svg:path
+           inkscape:connector-curvature="0"
+           id="path3115"
+           d="m 648.57143,748.07647 0,89.28571"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+        <svg:text
+           transform="scale(-1,1)"
+           sodipodi:linespacing="125%"
+           id="text5243"
+           y="728.505"
+           x="-649.93445"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><svg:tspan
+             style="font-size:12px;text-align:center;text-anchor:middle"
+             y="728.505"
+             x="-648.02429"
+             id="tspan5245"
+             sodipodi:role="line">Water </svg:tspan><svg:tspan
+             id="tspan5247"
+             style="font-size:12px;text-align:center;text-anchor:middle"
+             y="743.505"
+             x="-649.93445"
+             sodipodi:role="line">Height</svg:tspan></svg:text>
+      </svg:g>
     </svg:g>
+    <svg:path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="m 248.57143,835.21932 52.31615,-90.61423 16.96956,0"
+       id="path5249"
+       inkscape:connector-curvature="0" />
+    <svg:text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="319.57144"
+       y="747.79077"
+       id="text5435"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan5437"
+         x="319.57144"
+         y="747.79077"
+         style="font-size:12px">Penstock</svg:tspan></svg:text>
+    <svg:path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="m 365.71429,846.64789 30.71428,-53.57142 18.57143,0"
+       id="path5439"
+       inkscape:connector-curvature="0" />
+    <svg:text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="416.14285"
+       y="797.93359"
+       id="text5625"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan5627"
+         x="416.14285"
+         y="797.93359"
+         style="font-size:12px">Turbine</svg:tspan></svg:text>
+    <svg:path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="m 349.14286,824.64789 34.95718,-60.54761 23.61425,0"
+       id="path5629"
+       inkscape:connector-curvature="0" />
+    <svg:text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="410"
+       y="767.2193"
+       id="text5999"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan6001"
+         x="410"
+         y="767.2193"
+         style="font-size:12px">Generator</svg:tspan></svg:text>
+    <svg:path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="m 232.85714,647.36218 80.71429,0"
+       id="path6003"
+       inkscape:connector-curvature="0" />
+    <svg:text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="316.42856"
+       y="650.93359"
+       id="text6005"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan6007"
+         x="316.42856"
+         y="650.93359"
+         style="font-size:12px">Dam</svg:tspan></svg:text>
   </svg:g>
 </svg:svg>

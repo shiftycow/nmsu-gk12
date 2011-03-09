@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="jquery/js/jquery.svg.js"></script>
 		<script type="text/javascript" src="jquery/js/flot/jquery.flot.js"></script>
 		
+        <script type="text/javascript" src="hydro.js"></script>
         <link type="text/css" href="default.css" rel="stylesheet" />	
         <link type="text/css" href="hydro.css" rel="stylesheet" />	
 	</head>
@@ -35,26 +36,29 @@
         <object data="img/dam_cross_section.svg" width="640" height="480" />
         -->
  <div id="graphs">
-        <div id="h_v_time_graph" style="width: 640px; height: 480px;"></div>
-        <div id="power_v_time_graph" style="width: 640px; height: 300px;"></div>
-         
-        <div id="x_v_time_graph" style="width: 640px; height: 300px;"></div>
-        <div id="power_v_h_graph" style="width: 640px; height: 300px;"></div>
-        <div id="power_v_r_graph" style="width: 640px; height: 300px;"></div>
-        <div id="power_v_k_graph" style="width: 640px; height; 300px;"></div>
+        <div id="h_v_time_graph" style="width: 480px; height: 300px; float: right;"></div>
+        <!--
+        <div id="power_v_time_graph" style="width: 480px; height: 300px;"></div> 
+        <div id="x_v_time_graph" style="width: 480px; height: 300px;"></div>
+        <div id="power_v_h_graph" style="width: 480px; height: 300px;"></div>
+        <div id="power_v_r_graph" style="width: 480px; height: 300px;"></div>
+        <div id="power_v_k_graph" style="width: 480px; height; 300px;"></div>-->
     </div><!--end graphs-->
+    <embed src="img/dam_cross_section.svg" width="480px" height="360px" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install" />
 </div><!--end column1-->
 
 <div id="column2">
 <div id="controls">    
-    <div id="height_slider" style="height: 480px; float: left"></div> 
+    <div id="height_slider" style="height: 300px; float: left"></div> 
     <div id="other_controls" style="float: left; padding-left: 20px;">
         Height of water: <input type="text" id="height_input" size="3" onchange="set_height()"/>meters<br />
         <br /> 
-        Power Generated: <input type="text" id="power_output" readonly size="5"/>Watts<br />
+        Power Generated: <input type="text" id="power_output" readonly size="7" width="5"/>Kilowatts<br />
         <div id="lightbulbs"></div><!--div to hold the animated lightbulbs-->
         <div id="houses"></div>
-        <div id="tv"></div>
+        <div id="tvs"></div>
+        <!--<div id="computers"></div>-->
+
 
         <div class="info ui-state-highlight ui-corner-all">
             Power generated = h * r * G * k
@@ -65,7 +69,6 @@
                 <li>k = efficiency of the generator ( 0 &lt; k &lt; 1)</li>
             </ul>
         </div><!--end equation info div-->
-        <img src="img/dam_cross_section.png" /><br />
         <input type="button" onclick="add_point()" name="add_point" value="Add to Graph!" />
         <div id="i" style="display: none">0</div><!--holds the i global javascript variable-->
     </div><!--end "other controls"-->
@@ -78,6 +81,11 @@
         var default_k = 0.9; //efficiency of generator (percent)
         
         var max_h = 100;
+        
+        var house_kw = 1.5; //based off of Michael's electricty useage
+        var tv_kw = 0.1;
+        var computer_kw = 0.2;
+        var iPod_kw = 0.00050;
 
         //data series for graphing
         var power_v_h = [];
@@ -85,6 +93,25 @@
         var power_v_r = [];
         var power_v_time = [];
         var h_v_time = [];
+
+        function scale_power(load,p)
+        {
+            //this function returns an array containing a value from
+            //1-10 and a scale (x100, x1000, etc..) 
+            //it calculates the approximate number of "things" (divisors)
+            //that can be run with a set amount of power (p)
+            
+            //TODO this needs a lot of work
+            var c;
+            var scale;
+           
+            scale = 1;
+            for(c = p / load; c > 10; c = c % 10)
+                scale++;
+
+            scale = scale * 10;
+            return [c,scale];
+        }//end scale_power
 
         function power_generated(h,r,k)
         {
@@ -103,9 +130,29 @@
             var k = 0.8; //parseInt($("flow_rate_input").val());
             
             var power = power_generated(h,r,k);
-            $("#power_output").val(power);
+            $("#power_output").val(power);            
             
+            var houses = scale_power(house_kw,power);
+            var houses_html = "";
             
+            var tvs = scale_power(tv_kw,power);
+            var tvs_html = "";
+
+            var computers = scale_power(computer_kw,power);
+            var computers_html = "";
+            
+            for(var i = 0; i < houses[0]; i++)
+                houses_html = houses_html + "<img src=\"img/house.svg\" alt=\"house["+i+"]\" />";
+            
+            for(var i = 0; i < tvs[0]; i++)
+                tvs_html = tvs_html + "<img src=\"img/tv.svg\" alt=\"tv["+i+"]\" />";
+
+            for(var i = 0; i < computers[0]; i++)
+                computers_html = computers_html + "<img src=\"img/computer.svg\" alt=\"computer["+i+"]\" />";
+            
+            $("#houses").html(houses_html);
+            $("#tvs").html(tvs_html);
+            $("#computers").html(computers_html);
         }//end update_screen
        
         function set_height()
@@ -145,6 +192,7 @@
 
                                     create: function(event,ui){
                                                 update_height(default_h); 
+                                                add_point();
                                             }//end create
                                     });
         }//end init_controls
@@ -171,10 +219,15 @@
                                             {yaxis: {ticks: 20, min: 0, max: max_h}}
                     );
             */
-            $.plot($("#h_v_time_graph"),[{label: "Power Generated (KW)", data: power_v_time},
-                                         {label: "Water Height (m)", data: h_v_time}
-                                         ]); 
-            $.plot($("#power_v_h_graph"),[power_v_h]);
+            $.plot($("#h_v_time_graph"),[
+                                            {label: "Power Generated (KW)", data: power_v_time},
+                                            {label: "Water Height (m)", data: h_v_time}
+                                        ],
+                                        { 
+                                            series: {lines: {show: true}, points: {show: true}},
+                                            
+                                        }); 
+            //$.plot($("#power_v_h_graph"),[power_v_h]);
         }//end add point 
 
         //wait for the whole DOM to load and initialize the controls
