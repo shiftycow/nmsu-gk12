@@ -57,7 +57,7 @@
         <div id="lightbulbs"></div><!--div to hold the animated lightbulbs-->
         <div id="houses"></div>
         <div id="tvs"></div>
-        <!--<div id="computers"></div>-->
+        <div id="computers"></div>
 
 
         <div class="info ui-state-highlight ui-corner-all">
@@ -86,6 +86,7 @@
         var tv_kw = 0.1;
         var computer_kw = 0.2;
         var iPod_kw = 0.00050;
+        var lightbulb_kw = 0.050;
 
         //data series for graphing
         var power_v_h = [];
@@ -106,11 +107,12 @@
             var scale;
            
             scale = 1;
-            for(c = p / load; c > 10; c = c % 10)
-                scale++;
+            scale = 10 * parseInt(Math.log(p/load));
+            
+            c = p/load;
+            //for(c = p/load; c > 10; c = c / 10);
 
-            scale = scale * 10;
-            return [c,scale];
+            return [c,parseInt(c)];
         }//end scale_power
 
         function power_generated(h,r,k)
@@ -141,18 +143,29 @@
             var computers = scale_power(computer_kw,power);
             var computers_html = "";
             
-            for(var i = 0; i < houses[0]; i++)
-                houses_html = houses_html + "<img src=\"img/house.svg\" alt=\"house["+i+"]\" />";
+            var lightbulbs = scale_power(lightbulb_kw,power);
+            var lightbulbs_html = "";
             
-            for(var i = 0; i < tvs[0]; i++)
+            //for(var i = 0; i < houses[0]; i++)
+                houses_html = houses_html + "<img src=\"img/go-home.svg\" alt=\"house["+i+"]\" />";
+            houses_html = houses_html + " x" + houses[1];
+           
+            //for(var i = 0; i < tvs[0]; i++)
                 tvs_html = tvs_html + "<img src=\"img/tv.svg\" alt=\"tv["+i+"]\" />";
-
-            for(var i = 0; i < computers[0]; i++)
+            tvs_html = tvs_html + " x" + tvs[1];
+        
+            //for(var i = 0; i < computers[0]; i++)
                 computers_html = computers_html + "<img src=\"img/computer.svg\" alt=\"computer["+i+"]\" />";
+            computers_html = computers_html + " x" + computers[1];
+            
+            //for(var i = 0; i < lightbulbs[0]; i++)
+                lightbulbs_html = lightbulbs_html + "<img src=\"img/dialog-information.svg\" alt=\"lighbulbs["+i+"]\" />"; 
+            lightbulbs_html = lightbulbs_html + " x" + lightbulbs[1];
             
             $("#houses").html(houses_html);
-            $("#tvs").html(tvs_html);
+            //$("#tvs").html(tvs_html);
             $("#computers").html(computers_html);
+            $("#lightbulbs").html(lightbulbs_html);
         }//end update_screen
        
         function set_height()
